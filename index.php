@@ -10,33 +10,25 @@
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">	
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
-        <!-- Bootstrap -->
-        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
-        <title>Hello World</title>
-    </head>
-    <body>
-        <h1>Hello World</h1>
-        <p>
-            I waz here. 
-        </p>
-	<!--<img id="signin" src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png"  width="180" height="35" border="0" />-->
-    	<?php
-	    if(!isset($_SESSION['steamid'])) {
-    	        echo "welcome guest! please login<br><br>";
-                loginbutton(); //login button    
-            } else {
-                include ('steamauth/userInfo.php');
-                //Protected content
-                echo "Welcome back " . $steamprofile['personaname'] . "</br>";
-                echo "here is your avatar: </br>" . '<img src="'.$steamprofile['avatarfull'].'" title="" alt="" /><br>'; // Display their avatar!    
-                logoutbutton();
-            }    
-        ?>  
-	<pre id='out'></pre>	
-	
 	<script src="/js/utils.js" type="text/javascript"></script>
 	<!--<script src="/js/oidc-client.js" type="text/javascript"></script>-->
-	<script src="/js/signin.js" type="text/javascript"></script>
+        <title>Noside Labs</title>
+    </head>
+    <body>
+	<ul class="navmenu">
+	   <li class="navitem"><a onclick="window.location.href = 'http://www.nosidelabs.com/';">Home</a></li>
+	   <li class="navitem"><a href='http://www.nosidelabs.com/steam.php'>Steam</a></li>
+	   <?php
+                if(!isset($_SESSION['steamid'])) {
+	   	    echo '<li class="navitem" style="float:right; padding: 0px 8px;"><a href="?login"><img src="http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_01.png"></a></li>';
+                } else {
+                    include ('steamauth/userInfo.php');
+                //    echo "Welcome back " . $steamprofile['personaname'];
+                    echo '<li class="navitem" style="float:right; padding: 0px 8px;"><img width="45px" height=45px" src="'.$steamprofile['avatarfull'].'" title="" alt="" />' . $steamprofile['personaname'] . '</li>';
+                }
+           ?>
+	</ul>
     </body>
 </html>
