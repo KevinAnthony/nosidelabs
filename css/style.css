@@ -1,0 +1,48 @@
+html{
+    background-color: #EEEEEE;
+    font-family: Arial;
+    font-size: 1.7em;
+}
+.navmenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
+    height: 60px;
+    text-align: center;
+}
+
+.navmenu li {
+    float: left;
+}
+
+.navmenu li,
+.navmenu a, 
+.navmenu a:link, 
+.navmenu a:hover, 
+.navmenu a:visited, 
+.navmenu a:active {
+    display: block;
+    text-decoration: None;
+    text-align: center;
+    padding: 8px;
+    color: white;
+    height: 60px;
+    vertical-align: middle;
+}
+
+.navmenu img{
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+
+.navmenu a:hover:not(.active) {
+    background-color: #111;
+}
+
+.navmenu .active {
+    background-color: #4CAF50;
+}

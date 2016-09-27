@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<?php 
+    require ('steamauth/steamauth.php');
+?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+	<!-- Material Design fonts -->
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">	
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script src="/js/utils.js" type="text/javascript"></script>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript">
+       	    function codeAddress() {
+                $.ajax({
+                    url : 'http://api.nosidelabs.com/steam/LoginInfo',
+                    type: 'GET',
+                    success : function(data){
+                        document.getElementById("steamsignin").innerHTML=data;
+                    },
+	            dataType: 'html',
+            	})
+	    }
+            window.onload = codeAddress;
+        </script>
+        <title>Noside Labs</title>
+    </head>
+    <body>
+	<ul class="navmenu">
+	   <li class="navitem"><a onclick="window.location.href = 'http://www.nosidelabs.com/';">Home</a></li>
+	   <li class="navitem"><a href='http://www.nosidelabs.com/steam.php'>Steam</a></li>
+	   <li class="navitem" style="float:right; padding: 0px 8px;"><div id='steamsignin'></div></li>
+	</ul>
+    </body>
+</html>

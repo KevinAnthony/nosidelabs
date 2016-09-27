@@ -11,11 +11,10 @@ $(document).ready(getPlayerSummery);
 
 function getPlayerSummery(){
 	$.ajax({
-        url : ' http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' + apiKey + '&steamids=' + steamId,
+        url : 'http://api.nosidelabs.com/steam/GetPlayerSummery',
         type: 'GET',
         success : playerSummeryHandle,
-	dataType: 'jsonp',
-	jsonp: 'jsonp'  
+	dataType: 'json',
     })
 }
 
